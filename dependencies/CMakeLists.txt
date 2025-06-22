@@ -2,13 +2,14 @@ include(FetchContent)
 
 FetchContent_Declare(
     sfml
-    URL https://github.com/SFML/SFML/releases/download/2.5.1/SFML-2.5.1-sources.zip
+    GIT_REPOSITORY https://github.com/SFML/SFML
+    GIT_TAG 2.6.2
 )
 
 FetchContent_Declare(
   imgui
   GIT_REPOSITORY https://github.com/ocornut/imgui
-  GIT_TAG 35b1148efb839381b84de9290d9caf0b66ad7d03
+  GIT_TAG v1.89.9
 )
 
 FetchContent_MakeAvailable(imgui)
@@ -16,7 +17,7 @@ FetchContent_MakeAvailable(imgui)
 FetchContent_Declare(
   imgui-sfml
   GIT_REPOSITORY https://github.com/eliasdaler/imgui-sfml
-  GIT_TAG 82dc2033e51b8323857c3ae1cf1f458b3a933c35
+  GIT_TAG v2.6
 )
 
 add_subdirectory(imgui-sfml)

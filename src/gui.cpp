@@ -109,7 +109,7 @@ void Gui::_updateControls() {
   ImGui::InputText("Values", &this->numbers);
 
   ImGui::Text("push_swap file path");
-  ImGui::InputText("", &this->pushswap.path);
+  ImGui::InputText("File Path", &this->pushswap.path);
   if (ImGui::Button("Compute")) {
     this->pushswap.run(this->numbers);
     this->state = STATE::Stopped;
@@ -172,7 +172,9 @@ void Gui::_animateQueue(sf::Clock &clock) {
 }
 
 void Gui::loop() {
-  ImGui::SFML::Init(_window);
+  if (!ImGui::SFML::Init(_window)) {
+    throw std::runtime_error("Failed to init ImGui-SFML");
+  }
 
   sf::Clock deltaClock;
   sf::Clock stepClock;
